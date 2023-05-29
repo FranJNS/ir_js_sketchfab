@@ -1,0 +1,126 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: sans-serif;
+}
+
+.sketchfab-container-1920x1080 {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 150px); /* 150px es la altura del contenedor de opciones */
+  overflow: hidden;
+}
+
+.sketchfab-frame-1920x1080 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.app {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#api-frame {
+  flex: 1;
+  display: block;
+  border: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.options {
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  padding: 30px;
+  overflow: auto;
+  background-color: #fff;
+  position: relative;
+  z-index: 1;
+}
+
+.option {
+  display: flex;
+  padding: 16px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.option:first-child {
+  border-top: 1px solid #ccc;
+}
+
+.option label {
+  flex: 0 0 130px;
+}
+
+.color {
+  display: flex;
+  align-items: center;
+  padding: 4px 0;
+}
+
+.color input[type='radio'] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.color__swatch {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  margin-right: 4px;
+}
+
+.color input:checked + .color__swatch {
+  box-shadow: 0 0 0 2px #000;
+}
+
+.color:hover .color__swatch {
+  box-shadow: 0 0 0 2px #999;
+}
+
+.texture {
+  display: block;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.texture input[type='radio'] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.texture__preview {
+  display: block;
+}
+
+.texture__preview  img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.texture input:checked + .texture__preview > img {
+  box-shadow: 0 0 0 2px #000;
+}
+
+.texture__name {
+  display: block;
+  margin-top: 4px;
+}

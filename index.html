@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sketchfab Configurator</title>
+    <link rel="stylesheet" type="text/css" href="/wp-admin/css/API_FAB/styles.css">
+    <script src="/wp-admin/js/API_FAB/SketchfabConfigurator-1.0.6.js"></script>
+    <style type="text/css">
+        /* Establece el tamaño del contenedor de la API */
+        .sketchfab-container {
+            width: 100%;
+            height: calc(100vh - 150px); /* 150px es la altura del contenedor de opciones */
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Establece el tamaño del iframe de la API */
+        .sketchfab-frame {
+            width: 100%;
+            height: 100%;
+            border: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        /* Establece el tamaño del contenedor de opciones del configurador */
+        .options {
+            width: 100%;
+            height: auto;
+            overflow-y: auto;
+        }
+        
+        /* Limpia los márgenes y el relleno del cuerpo del documento */
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Clearfix para evitar que los elementos floten fuera del contenedor */
+        .app:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div class="sketchfab-container">
+        <iframe class="sketchfab-frame" src="" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="vr"></iframe>
+    </div>
+    <div class="options"></div>
+    <script type="text/javascript" src="https://static.sketchfab.com/api/sketchfab-viewer-1.3.2.js"></script>
+    <script type="text/javascript" src="./SketchfabConfigurator-1.0.6.js"></script>
+    <script type="text/javascript">
+        var config = {
+            "model": "fbdb7b2b3a574a60ab3e474f094827fd",
+            "params": {
+                "camera": 0,
+                "preload": 1,
+                "ui_controls": 1, /* Cambia a 1 para que se muestren los controles */
+                "ui_infos": 0,
+                "ui_watermark": 0
+            },
+            "config": [
+                {
+                    "name": "Olla s. XV",
+                    "type": "select",
+                    "options": [
+                        {
+                            "name": "Estado Actual",
+                            "selector": "[instance=\"412\"]"
+                        },
+                        {
+                            "name": "Estado Original",
+                            "selector": "[instance=\"420\"]"
+                        }
+                    ],
+                    "default": 1
+                }
+            ]
+        };
+        var iframeEl = document.querySelector('.sketchfab-frame');
+        var optionsEl = document.querySelector('.options');
+        var configurator = new SketchfabConfigurator.Configurator(iframeEl, optionsEl, config);
+    </script>
+</body>
+</html>
